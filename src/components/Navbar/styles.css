@@ -1,0 +1,9 @@
+#navbar-container a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+#navbar-container a:hover {
+  color: #ddd;
+}
