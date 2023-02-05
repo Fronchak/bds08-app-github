@@ -1,37 +1,42 @@
 /* VARIABLES */
 
 :root {
-    --primary-color: #1890FF;
-    --secondary-color: #000;
-    --third-color: #7E7E7E;
-    --fourth-color: #E6F7FF;
+  --primary-color: #1890FF;
+  --secondary-color: #000;
+  --third-color: #7E7E7E;
+  --fourth-color: #E6F7FF;
+  --fifty-color: #262626;
 }
 
 /* GENERAL */
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #E5E5E5;
+  font-family: 'Roboto', sans-serif;
+  background-color: #E5E5E5;
 }
 
 .primary-color {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .primary-bg-color {
-    background-color: var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 .secondary-color {
-    color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .third-color {
-    color: var(--third-color);
+  color: var(--third-color);
 }
 
 .fourth-bg-color {
-    background-color: var(--fourth-color);
+  background-color: var(--fourth-color);
+}
+
+.fifth-color {
+  color: var(--fifty-color);
 }
 
 .default-btn {

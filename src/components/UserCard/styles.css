@@ -1,0 +1,30 @@
+#user-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#user-card-container img {
+  width: 100%;
+}
+
+#card-content {
+  border: 1px solid #D9D9D9;
+  border-radius: 6px;
+}
+
+@media (min-width: 576px) {
+  #user-card-container img {
+    width: 250px;
+  }
+}
+
+@media (min-width: 992px) {
+  #user-card-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #card-content {
+    flex: 1;
+  }
+}

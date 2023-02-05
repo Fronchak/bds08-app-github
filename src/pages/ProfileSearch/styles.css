@@ -1,0 +1,14 @@
+#search-card {
+  border-radius: 1em;
+}
+
+#profile-result-container {
+  background: #F5F5F5;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  #search-card input {
+    max-width: 300px;
+  }
+}
