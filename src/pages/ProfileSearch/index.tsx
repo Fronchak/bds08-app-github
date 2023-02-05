@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Form, useSubmit, LoaderFunctionArgs, useLoaderData } from 'react-router-dom';
+import { Form, useSubmit, LoaderFunctionArgs, useLoaderData, useNavigation } from 'react-router-dom';
 import UserCard from '../../components/UserCard';
 
 import './styles.css';
 import { GithubUser } from '../../types/vendor/GithubUser';
+import ProfileLoader from './ProfileLoader';
 
 export const loader = async({ request }:LoaderFunctionArgs) => {
   const url = new URL(request.url);
@@ -41,6 +42,7 @@ const ProfileSearch = () => {
   const [error, setError] = useState<string>('');
   const [wasSubmit, setWasSubmited] = useState<boolean>(false);
   const submit = useSubmit();
+  const navigation = useNavigation();
   const { user, username, isNotFound } = useLoaderData() as Loader;
 
   const checkError = ():boolean => {
@@ -78,6 +80,7 @@ const ProfileSearch = () => {
     <div className="container mt-4">
       <div id="search-card" className="px-2 px-lg-4 py-3 py-lg-5 mb-5 fourth-bg-color">
         <h2>Encontre um perfil Github</h2>
+        <p>{ navigation.state }</p>
         <Form id="form">
           <div className="mb-3">
             <input
@@ -101,18 +104,24 @@ const ProfileSearch = () => {
           >Encontrar</button>
         </Form>
       </div>
-      { user !== null && (
-        <div id="profile-result-container" className="p-3 p-md-4 p-xxl-5">
-          <UserCard user={user} />
-        </div>
-      ) }
-      { isNotFound && (
-        <div>
-          <div className="alert alert-danger" role="alert">
-            Sorry, there is no Github profile with this username
+      { navigation.state === 'loading' ? (
+        <ProfileLoader />
+      ) : (
+        <>
+          {user !== null && (
+          <div id="profile-result-container" className="p-3 p-md-4 p-xxl-5">
+            <UserCard user={user} />
           </div>
-        </div>
-      ) }
+          )}
+        { isNotFound && (
+          <div>
+            <div className="alert alert-danger" role="alert">
+              Sorry, there is no Github profile with this username
+            </div>
+          </div>
+        ) }
+        </>
+      )}
     </div>
   );
 }
