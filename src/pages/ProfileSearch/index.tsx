@@ -80,7 +80,6 @@ const ProfileSearch = () => {
     <div className="container mt-4">
       <div id="search-card" className="px-2 px-lg-4 py-3 py-lg-5 mb-5 fourth-bg-color">
         <h2>Encontre um perfil Github</h2>
-        <p>{ navigation.state }</p>
         <Form id="form">
           <div className="mb-3">
             <input
